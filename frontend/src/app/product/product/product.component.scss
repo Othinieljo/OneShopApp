@@ -1,0 +1,35 @@
+.cart{
+  width: 250px;
+  height: 300px;
+  padding: 0;
+  margin-left: 10px;
+}
+.cart img{
+  height: 200px;
+  width: 180px;
+  display: block;
+  padding: 0px 15px;
+  border: 1px solid #F3F3F4;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.cart p {
+  margin: 0;
+  font-style: normal;
+  font-family: 'Poppins-N';
+  margin-left: 1px;
+
+
+}
+span{
+
+ margin-left: 38px;
+}
+.cart button{
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+
+
+
+}

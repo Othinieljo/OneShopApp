@@ -1,0 +1,5 @@
+<div class="cart">
+  <app-product *ngFor="let item of products$ | async" [Product]="item"
+  (AjouterPanierClick)="AjouterPanier(item)"
+  ></app-product>
+</div>

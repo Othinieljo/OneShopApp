@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="grid">
+      <div class="bgd">
+       <img src="./../../../assets/logo.png" alt="One Shop">
+      </div>
+      <div class="form">
+          <h1>Création de compte </h1>
+          <form action=""  [formGroup]="user2Form">
+              <div class="inputbox">
+                  <label for="nom">Nom</label>
+                  <input type="string" required formControlName="nom">
+              </div>
+              <div class="inputbox">
+                  <label for="prenom" >Prenom </label>
+                  <input required formControlName="prenom">
+
+              </div>
+              <div class="inputbox">
+                <label for="number" >Numero</label>
+                <input required formControlName="number">
+
+            </div>
+            <div class="inputbox">
+              <label for="adresse" >Adresse</label>
+              <input required formControlName="adresse">
+
+          </div>
+              <input type="submit" value="Connexion" (click)="submitForm()" >
+              <p>Vous avez déjà un compte ? </p>
+              <p class="btn" >Connexion</p>
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+<!-- <div *ngIf="loadingService.isloading" class="loader-overlay">
+  <div class="loader"></div>
+</div> -->

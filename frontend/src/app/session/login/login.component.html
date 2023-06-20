@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="grid">
+      <div class="bgd">
+       <img src="./../../../assets/logo.png" alt="One Shop">
+      </div>
+      <div class="form">
+          <h1>Connexion</h1>
+          <form action="">
+              <div class="inputbox">
+                  <label for="email">Email</label>
+                  <input type="email" required>
+              </div>
+              <div class="inputbox">
+                  <label for="email">Mot de Passe </label>
+                  <input [type]="ViewPassword ? 'text' : 'Password' " required>
+                  <fa-icon *ngIf="!ViewPassword ? true : false " [icon]="faEye" (click)="ViewPasswordclick()" ></fa-icon>
+                  <fa-icon *ngIf="ViewPassword ? true : false" [icon]="faEyeSlash" (click)="ViewPasswordclick()" ></fa-icon>
+              </div>
+              <input type="submit" value="Connexion">
+              <p>Vous n'avez pas de compte ? </p>
+              <p class="btn" (click)="NavigateToSignup()">S'inscrire</p>
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
