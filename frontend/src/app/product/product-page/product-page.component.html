@@ -4,14 +4,32 @@
   </div>
   <ul>
     <li>Acceuil</li>
-    <li>Catégorie</li>
+    <li (mouseenter)="showCat = true" (mouseleave)="showCat = false">
+      <span>Categories</span>
+    </li>
+
+
+
   </ul>
   <div class="track">
     <input type="text" placeholder="Chercher produit">
   </div>
   <ul>
     <li>Compte</li>
-    <li>Panier</li>
+    <li> <fa-icon class="cart" [icon]="cart"></fa-icon> Panier</li>
+  </ul>
+
+</div>
+<div class="banner">
+
+</div>
+<div class="overlay " [class.active]="showCat" (mouseenter)="showCat = true" (mouseleave)="showCat = false">
+  <ul>
+    <li>Tee-shirt</li>
+    <li>Polo</li>
+    <li>Shoe</li>
+
   </ul>
 </div>
-<app-product-list></app-product-list>
+<div class="border"></div>
+<app-product-list ></app-product-list>

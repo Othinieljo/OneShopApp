@@ -4,6 +4,7 @@ import {FormBuilder,FormGroup,Validators}  from '@angular/forms'
 import { User2 } from 'src/app/_interfaces/user2';
 import { AuthService } from 'src/app/_services/auth.service';
 import { LoadingService } from 'src/app/_services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup2',
@@ -18,7 +19,8 @@ export class Signup2Component implements OnInit{
   constructor(
     private formBuilder : FormBuilder,
     private AuthService : AuthService,
-    public loadingService : LoadingService
+    public loadingService : LoadingService,
+    private router : Router
 
            ){}
    ngOnInit(): void {
@@ -37,6 +39,9 @@ export class Signup2Component implements OnInit{
 
   ViewPasswordclick(){
      this.ViewPassword = !this.ViewPassword
+  }
+  NavigateToLogin(){
+    this.router.navigateByUrl('/connexion')
   }
   submitForm(){
     if (this.user2Form.valid){

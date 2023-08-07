@@ -1,6 +1,6 @@
 export interface User2 {
   nom : String,
   prenom : String,
-  number : Number,
+  number : String,
   adresse : String
 }

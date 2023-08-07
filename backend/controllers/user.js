@@ -1,13 +1,15 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./../_config/models/user');
-const { check, validationResult } = require('express-validator')
+const { check, validationResult } = require('express-validator');
+const { default: mongoose } = require('mongoose');
 
 
 exports.signup = (req,res,next) => {
     bcrypt.hash(req.body.password,10)
     .then((hash) =>  {
         const user = new User({
+                id_user : new mongoose.Types.ObjectId,
                 nom : req.body.nom,
                 prenom : req.body.prenom,
                 email : req.body.email,
@@ -43,7 +45,7 @@ exports.signup = (req,res,next) => {
 
 
 exports.login = (req,res) => {
-    User.findOne({email : req.body.password})
+    User.findOne({email : req.body.email})
     .then((user) => {
         if(!user){
             return res.status(401).json({message : 'Paire de login/mot de passe incorrecte '})
@@ -53,15 +55,14 @@ exports.login = (req,res) => {
             if (!valid){
                 return res.status(401).json({message : 'Paire de login / mot de passe incorrecte'})
             }
-            const token = {
-                userId : user.id_user,
-                token : jwt.sign(
+            const token = 
+                 jwt.sign(
                   { email : user.email, 
                     id : user._id},
                     'RANDOM_TOKEN_SECRET',
                     {expiresIn : '24h'}
                 )
-            }
+            
             res.status(200).json({
                 token:token,
                 expiresIn:86400,

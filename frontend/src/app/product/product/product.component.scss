@@ -1,35 +1,87 @@
 .cart{
-  width: 250px;
-  height: 300px;
+  width: 210px;
+  height: 310px;
   padding: 0;
   margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #F3F3F4;
+  // border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond avec transparence */
+  backdrop-filter: blur(5px); /* Flou sur l'arrière-plan (effet glassmorphic) */
+  border-radius: 10px; /* Coins arrondis pour un aspect plus doux */
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease; /* Transition fluide */
+}
+.cart::before {
+  /* Ajouter une pseudo-classe pour l'ombre */
+  content: '';
+  position: absolute;
+  top: -5px; /* Décalage vers le haut pour l'ombre */
+  left: -5px; /* Décalage vers la gauche pour l'ombre */
+  right: -5px; /* Décalage vers la droite pour l'ombre */
+  bottom: -5px; /* Décalage vers le bas pour l'ombre */
+  z-index: -1; /* Placez l'ombre en dessous de l'élément .cart */
+  border-radius: 15px; /* Coins arrondis plus grands pour l'ombre */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Ombre sur tous les côtés */
+  opacity: 0; /* Rendre l'ombre transparente par défaut */
+  transition: opacity 0.3s ease; /* Transition fluide pour l'ombre */
+}
+
+
+.cart:hover{
+  box-shadow: 5px 5px 5px #ddd;
+  /* Augmenter la transparence et le flou lorsqu'il est survolé */
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 .cart img{
   height: 200px;
   width: 180px;
   display: block;
   padding: 0px 15px;
-  border: 1px solid #F3F3F4;
-  border-radius: 12px;
   cursor: pointer;
+}
+.regular{
+  color: #2145D9;
+  font-weight: 800;
 }
 .cart p {
   margin: 0;
   font-style: normal;
   font-family: 'Poppins-N';
-  margin-left: 1px;
+  margin-left: 15px;
 
 
 }
+
 span{
 
  margin-left: 38px;
 }
 .cart button{
   outline: none;
-  cursor: pointer;
   padding: 5px;
+  background-color: #000;
+  outline: none;
+  border: 1px solid #000;
+  padding: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 3s ease-in-out;
+  color: #fff;
+  font-family: 'Poppins-N';
+  width: 110px;
+  margin-left: 15px;
 
 
 
+}
+.cart:hover::before {
+  /* Afficher l'ombre lorsque l'élément est survolé */
+  opacity: 1;
+}
+fa-icon{
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  cursor: pointer;
 }

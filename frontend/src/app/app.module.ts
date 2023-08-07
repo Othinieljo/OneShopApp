@@ -10,11 +10,14 @@ import { SessionModule } from './session/session.module';
 import { LoadingService } from './_services/loading.service';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptor } from './_interceptors/loader.interceptor';
+import { AuthInterceptor } from './_interceptors/auth.interceptor';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -30,6 +33,11 @@ import { LoaderInterceptor } from './_interceptors/loader.interceptor';
     {
       provide : HTTP_INTERCEPTORS,
       useClass:LoaderInterceptor,
+      multi:true
+    },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
       multi:true
     }
   ],

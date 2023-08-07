@@ -9,3 +9,14 @@ exports.getAllProducts = (req,res,next) => {
         res.status(404).json(error)
     })
 }
+exports.getOneProduct = (req,res,next) => {
+    
+    Product.findOne({_id : req.params.id})
+    .then((product) => {
+        res.status(200).json(product)
+
+    })
+    .catch((error) => {
+        res.status(404).json(error)
+    })
+}

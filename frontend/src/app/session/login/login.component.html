@@ -5,18 +5,19 @@
       </div>
       <div class="form">
           <h1>Connexion</h1>
-          <form action="">
+          <form action="" [formGroup]="userForm">
               <div class="inputbox">
                   <label for="email">Email</label>
-                  <input type="email" required>
+                  <input type="email" required formControlName="email">
               </div>
               <div class="inputbox">
                   <label for="email">Mot de Passe </label>
-                  <input [type]="ViewPassword ? 'text' : 'Password' " required>
+                  <input [type]="ViewPassword ? 'text' : 'Password' " required formControlName="password">
                   <fa-icon *ngIf="!ViewPassword ? true : false " [icon]="faEye" (click)="ViewPasswordclick()" ></fa-icon>
                   <fa-icon *ngIf="ViewPassword ? true : false" [icon]="faEyeSlash" (click)="ViewPasswordclick()" ></fa-icon>
               </div>
-              <input type="submit" value="Connexion">
+              <input type="submit" value="Connexion" (click)="OnSubmit()">
+              <p *ngIf="warning" class="warn"> {{warning}} </p>
               <p>Vous n'avez pas de compte ? </p>
               <p class="btn" (click)="NavigateToSignup()">S'inscrire</p>
           </form>

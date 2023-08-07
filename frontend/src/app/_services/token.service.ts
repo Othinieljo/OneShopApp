@@ -10,13 +10,24 @@ export class TokenService {
   saveToken(token:string){
     localStorage.setItem('token',token)
   }
+  saveId(id:string){
+    localStorage.setItem('id',id)
+  }
   getToken(){
     const token = localStorage.getItem('token')
 
     if (token){
       return token
     }else{
-      return ''
+      return null
     }
+  }
+  getId() : string{
+    const id = localStorage.getItem('id');
+     if (id){
+      return id
+     }else{
+      return ''
+     }
   }
 }

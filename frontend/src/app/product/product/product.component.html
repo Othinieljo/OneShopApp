@@ -1,6 +1,7 @@
-<div class="cart">
+<div class="cart" (click)="NavigateTo()" >
   <img [src]="Product.photo_produit" [alt]="Product.nom_produit">
-  <p>  {{Product.nom_produit}} <span> {{Product.prix_produit}}</span>    </p>
+   <fa-icon  [ngStyle]="{color : isLiked ? likeColor : dislikeColor}" (click)="toggleLike()" [icon]="isLiked ?  faHeartS :  faHeart" ></fa-icon>
+  <p class="regular">  {{Product.nom_produit}} <span> {{Product.prix_produit}}</span>    </p>
   <p> {{Product.description_produit}}    </p>
   <button (click)="AjouterPanier()">J'achète</button>
 
