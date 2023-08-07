@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 function Connect(){
-       mongoose.connect('mongodb+srv://John:Wifesk78@cluster0.fzsy48h.mongodb.net/OneShop?retryWrites=true&w=majority')
+       mongoose.connect('')
        .then(() => {
         console.log('Connection réussi à la base de données ')
        })
